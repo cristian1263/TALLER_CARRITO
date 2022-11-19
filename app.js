@@ -14,6 +14,10 @@ cards.addEventListener('click', e => {
   addCarrito(e)
 })
 
+items.addEventListener('click', e => {
+  btnAccion(e)
+})
+
 const fetchData = async () => {
   try {
     const res = await fetch('https://finalspaceapi.com/api/v0/character')
@@ -38,8 +42,6 @@ const pintarCards = data => {
 }
 
 const addCarrito = e => {
-  //console.log(e.target)
-  //console.log(e.target.classList.contains('btn-dark'))
   if (e.target.classList.contains('btn-dark')) {
     setCarrito(e.target.parentElement)
   }
@@ -74,4 +76,50 @@ const pintarcarrito = () => {
     fragment.appendChild(clone)
   })
   items.appendChild(fragment)
+
+  pintarFooter()
+}
+
+const pintarFooter = () => {
+  footer.innerHTML = ''
+  if (Object.keys(carrito).lenght === 0) {
+    footer.innerHTML = ` <th scope="row" colspan="5">Carrito Vacío - comience a comprar</th>`
+    return
+  }
+
+  const nCantidad = Object.values(carrito).reduce((acc, { cantidad }) => acc + cantidad, 0)
+  const nPrecio = Object.values(carrito).reduce((acc, { cantidad, precio }) => acc + cantidad * precio, 0)
+
+  templateFooter.querySelectorAll('td')[0].textContent = nCantidad
+  templateFooter.querySelector('span').textContent = nPrecio
+
+  const clone = templateFooter.cloneNode(true)
+  fragment.appendChild(clone)
+  footer.appendChild(fragment)
+
+  const btnvaciar = document.getElementById('vaciar-carrito')
+  btnvaciar.addEventListener('click', () => {
+    carrito = {}
+    pintarcarrito()
+  })
+}
+
+const btnAccion = e => {
+  //aumentar
+  if (e.target.classList.contains('btn-info')) {
+    const producto = carrito[e.target.dataset.id]
+    producto.cantidad = carrito[e.target.dataset.id].cantidad + 1
+    carrito[e.target.dataset.id] = { ...producto }
+    pintarcarrito()
+  }
+
+  if (e.target.classList.contains('btn-danger')) {
+    const producto = carrito[e.target.dataset.id]
+    producto.cantidad = carrito[e.target.dataset.id].cantidad - 1
+    if (producto.cantidad === 0) {
+      delete carrito[e.target.dataset.id]
+    }
+    pintarcarrito()
+  }
+  e.stopPropagation()
 }
