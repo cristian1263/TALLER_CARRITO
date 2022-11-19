@@ -9,6 +9,10 @@ let carrito = {}
 
 document.addEventListener('DOMContentLoaded', () => {
   fetchData()
+  if (localStorage.getItem('carrito')) {
+    carrito = JSON.parse(localStorage.getItem('carrito'))
+    pintarcarrito()
+  }
 })
 cards.addEventListener('click', e => {
   addCarrito(e)
@@ -71,24 +75,32 @@ const pintarcarrito = () => {
     templateCarrito.querySelectorAll('td')[1].textContent = producto.cantidad
     templateCarrito.querySelector('.btn-info').dataset.id = producto.id
     templateCarrito.querySelector('.btn-danger').dataset.id = producto.id
-    templateCarrito.querySelector('span').textContent = producto.cantidad * producto.precio
+    templateCarrito.querySelector('span').textContent =
+      producto.cantidad * producto.precio
     const clone = templateCarrito.cloneNode(true)
     fragment.appendChild(clone)
   })
   items.appendChild(fragment)
-
   pintarFooter()
+
+  localStorage.setItem('carrito', JSON.stringify(carrito))
 }
 
 const pintarFooter = () => {
   footer.innerHTML = ''
-  if (Object.keys(carrito).lenght === 0) {
-    footer.innerHTML = ` <th scope="row" colspan="5">Carrito Vacío - comience a comprar</th>`
+  if (Object.keys(carrito).length === 0) {
+    footer.innerHTML = ` <th scope="row" colspan="5" >Carrito Vacío empieze a comprar </th>`
     return
   }
 
-  const nCantidad = Object.values(carrito).reduce((acc, { cantidad }) => acc + cantidad, 0)
-  const nPrecio = Object.values(carrito).reduce((acc, { cantidad, precio }) => acc + cantidad * precio, 0)
+  const nCantidad = Object.values(carrito).reduce(
+    (acc, { cantidad }) => acc + cantidad,
+    0
+  )
+  const nPrecio = Object.values(carrito).reduce(
+    (acc, { cantidad, precio }) => acc + cantidad * precio,
+    0
+  )
 
   templateFooter.querySelectorAll('td')[0].textContent = nCantidad
   templateFooter.querySelector('span').textContent = nPrecio
