@@ -1,0 +1,85 @@
+[
+  {
+    "id": "1",
+    "name": "Gary Goodspeed",
+    "precio": "200",
+    "img_url": "https://finalspaceapi.com/api/character/avatar/gary_goodspeed.png"
+  },
+
+  {
+    "id": "2",
+    "name": "Mooncake",
+    "precio": "400",
+    "img_url": "https://finalspaceapi.com/api/character/avatar/mooncake.jpg"
+  },
+
+  {
+    "id": "3",
+    "name": "Quinn Ergon",
+    "precio": "300",
+    "img_url": "https://finalspaceapi.com/api/character/avatar/quinn_ergon.jpg"
+  },
+
+  {
+    "id": "4",
+    "name": "Little Cato",
+    "precio": "700",
+    "img_url": "https://finalspaceapi.com/api/character/avatar/little_cato.jpg"
+  },
+
+  {
+    "id": "5",
+    "name": "Avocato",
+    "precio": "900",
+    "img_url": "https://finalspaceapi.com/api/character/avatar/avocato.jpg"
+  },
+
+  {
+    "id": "6",
+    "name": "KVN",
+    "precio": "1100",
+    "img_url": "https://finalspaceapi.com/api/character/avatar/kvn.jpg"
+  },
+
+  {
+    "id": "7",
+    "name": "Ash Graven",
+    "precio": "200",
+    "img_url": "https://finalspaceapi.com/api/character/avatar/ash_graven.png"
+  },
+
+  {
+    "id": "8",
+    "name": "Fox",
+    "precio": "8000",
+    "img_url": "https://finalspaceapi.com/api/character/avatar/fox.jpg"
+  },
+
+  {
+    "id": "9",
+    "name": "H.U.E",
+    "precio": "1500",
+    "img_url": "https://finalspaceapi.com/api/character/avatar/hue.jpg"
+  },
+
+  {
+    "id": "10",
+    "name": "Tribore",
+    "precio": "3000",
+    "img_url": "https://finalspaceapi.com/api/character/avatar/tribore.jpg"
+  },
+
+  {
+    "id": 11,
+    "name": "Clarence",
+    "precio": "600",
+    "img_url": "https://finalspaceapi.com/api/character/avatar/clarence.jpg"
+  },
+
+  {
+    "id": 12,
+    "name": "Biskit",
+    "precio": "550",
+    "img_url": "https://finalspaceapi.com/api/character/avatar/biskit.png"
+  }
+]

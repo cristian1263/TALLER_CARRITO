@@ -54,7 +54,8 @@
         <div class="card">
           <img src="" alt="" class="card-img-top" />
           <div class="card-body">
-            <h5>Titulo</h5>
+            <input type="text" name="" id="nom" mozactionhint="done" />
+            <h5>nombre</h5>
             <p>Precio</p>
             <button class="btn btn-dark">Comprar</button>
           </div>
@@ -67,13 +68,13 @@
     <template id="template-carrito">
       <tr>
         <th scope="row">id</th>
-        <td>Gary Goodspeed</td>
-        <td>1</td>
+        <td>nombre</td>
+        <td>cantidad</td>
         <td>
           <button class="btn btn-info btn-sm">+</button>
           <button class="btn btn-danger btn-sm">-</button>
         </td>
-        <td>$ <span>200</span></td>
+        <td>$ <span>valor</span></td>
       </tr>
     </template>
 
@@ -81,14 +82,16 @@
 
     <template id="template-footer">
       <th scope="row" colspan="2">Total de Productos</th>
-      <td>10</td>
+      <td>cantidad-total</td>
       <td>
         <button class="btn btn-danger btn-sm" id="vaciar-carrito">
           vaciar todo
         </button>
       </td>
-      <td class="font-wight-bols">$ <span>2000</span></td>
+      <td class="font-wight-bols">$ <span>valor-total</span></td>
     </template>
+
+    <!--/////////////////////////////////////-->
 
     <script src="app.js"></script>
   </body>

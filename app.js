@@ -24,7 +24,7 @@ items.addEventListener('click', e => {
 
 const fetchData = async () => {
   try {
-    const res = await fetch('https://finalspaceapi.com/api/v0/character')
+    const res = await fetch('api.json')
     const data = await res.json()
     //console.log(data)
     pintarCards(data)
@@ -36,7 +36,7 @@ const fetchData = async () => {
 const pintarCards = data => {
   data.forEach(producto => {
     templateCard.querySelector('h5').textContent = producto.name
-    templateCard.querySelector('p').textContent = producto.id * '200'
+    templateCard.querySelector('p').textContent = producto.precio
     templateCard.querySelector('img').setAttribute('src', producto.img_url)
     templateCard.querySelector('.btn-dark').dataset.id = producto.id
     const clone = templateCard.cloneNode(true)
